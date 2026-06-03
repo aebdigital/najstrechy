@@ -1,0 +1,295 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----- Local fonts (Rethink Sans) ----- */
+@font-face {
+  font-family: 'Rethink Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/rethink-sans-400.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rethink Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/rethink-sans-500.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rethink Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/rethink-sans-600.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rethink Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/rethink-sans-700.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Rethink Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/assets/fonts/rethink-sans-800.ttf') format('truetype');
+}
+
+/* ----- Lenis smooth scroll ----- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ----- Base / layout ----- */
+body {
+  font-family: 'Rethink Sans', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fafaf8;
+  margin: 0;
+  overflow-x: hidden;
+}
+.site-container {
+  width: 95vw;
+  max-width: 95vw;
+  margin: 0 auto;
+}
+.section-large {
+  padding: 7rem 0;
+}
+@media (max-width: 768px) {
+  .section-large {
+    padding: 4rem 0;
+  }
+}
+
+/* ----- Header ----- */
+.site-header {
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.site-header.scrolled {
+  background: rgba(39, 34, 32, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ----- Hover split text ----- */
+.hover-split-text {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+.hover-split-text-inner {
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.hover-split-text-inner::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  line-height: inherit;
+}
+*:hover > .hover-split-text > .hover-split-text-inner,
+.hover-split-text:hover > .hover-split-text-inner {
+  transform: translateY(-100%);
+}
+
+/* ----- Hover reveal clip ----- */
+.hover-reveal-clip {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transition: clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.group:hover .hover-reveal-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ----- Scroll reveal animations ----- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-in-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1.4s ease-out, transform 1.4s ease-out;
+}
+.fade-in-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.delay-100 {
+  transition-delay: 0.1s;
+}
+.delay-200 {
+  transition-delay: 0.2s;
+}
+.delay-300 {
+  transition-delay: 0.3s;
+}
+
+/* ----- Hero slider ----- */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* ----- References slider ----- */
+.ref-slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 1rem 0;
+}
+.ref-slider::-webkit-scrollbar {
+  display: none;
+}
+.ref-card {
+  flex: 0 0 480px;
+  height: 650px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .ref-card {
+    flex: 0 0 85vw;
+    height: 500px;
+  }
+}
+.ref-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.ref-card:hover img {
+  transform: scale(1.05);
+}
+.ref-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1.5rem;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+}
+
+/* ----- Image hover zoom ----- */
+.img-hover-zoom {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.img-hover-zoom img {
+  transition: transform 0.8s ease;
+}
+.img-hover-zoom:hover img {
+  transform: scale(1.06);
+}
+
+/* ----- Buttons ----- */
+.btn-primary {
+  background: #486734;
+  color: #fff;
+  padding: 0.875rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: #3a5429;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(72, 103, 52, 0.3);
+}
+.btn-outline {
+  border: 1.5px solid #486734;
+  color: #486734;
+  padding: 0.875rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+}
+.btn-outline:hover {
+  background: #486734;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ----- Misc ----- */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+.divider {
+  width: 60px;
+  height: 2px;
+  background: #a38e7e;
+}
+
+/* ----- Menu overlay ----- */
+#menu-overlay {
+  transform: translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+body.menu-open #menu-overlay {
+  transform: translateY(0);
+}

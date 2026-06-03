@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naj-strecha s.r.o. - Strechy Rožňava a východné Slovensko</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Profesionálne strešné práce, izolácie a opravy komínov. Flexibilná firma s vlastnými zamestnancami, rýchla realizácia a priame ceny od výrobcu.">
+    <script src="js/tailwindcss.js"></script>
+    <script src="js/tailwind.config.js"></script>
+    <script src="js/lenis.min.js"></script>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="js/plausible.js"></script>
+<script src="js/analytics-init.js"></script>
+
+</head>
+<body class="antialiased">
+    <header id="site-header" class="site-header fixed top-0 left-0 right-0 z-50 bg-transparent">
+        <div class="site-container flex items-center justify-between h-16 md:h-24">
+            <div class="hidden md:flex w-1/3 items-center"><button class="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 hover:bg-white/10 backdrop-blur-sm group"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="SK">SK</span></span></button></div>
+            <div class="flex-1 md:w-1/3 flex justify-start md:justify-center"><a href="#" class="text-xl md:text-2xl font-extrabold tracking-tight text-white font-heading">Naj-strecha s.r.o.</a></div>
+            <div class="flex md:w-1/3 justify-end items-center">
+                <button id="menu-toggle" class="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 flex items-center gap-3 hover:bg-white/10 backdrop-blur-sm group">
+                    <div class="w-4 flex flex-col gap-1"><span class="w-full h-[1.5px] bg-white rounded-full"></span><span class="w-full h-[1.5px] bg-white rounded-full"></span></div>
+                    <span class="hover-split-text"><span class="hover-split-text-inner" data-text="Menu">Menu</span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="menu-overlay" class="fixed top-0 inset-x-0 h-screen md:h-[60vh] z-[60] bg-brown flex flex-col overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.5)] border-b border-white/10">
+        <div class="absolute inset-0 z-0 pointer-events-none" style="background-image:url('assets/texture.svg');background-size:cover;filter:invert(1);opacity:.3"></div>
+        <div class="relative z-10 site-container flex items-center justify-between h-24 shrink-0">
+            <div class="w-1/3 flex items-center"><button class="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 hover:bg-white/10"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="SK">SK</span></span></button></div>
+            <div class="w-1/3 flex justify-center"><span class="text-xl md:text-2xl font-extrabold tracking-tight text-white font-heading">Naj-strecha s.r.o.</span></div>
+            <div class="w-1/3 flex justify-end">
+                <button id="menu-close" class="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 flex items-center gap-3 hover:bg-white/10 group">
+                    <span class="relative w-4 h-4 flex items-center justify-center"><span class="absolute w-full h-[1.5px] bg-white rotate-45 rounded-full"></span><span class="absolute w-full h-[1.5px] bg-white -rotate-45 rounded-full"></span></span>
+                    <span class="hover-split-text"><span class="hover-split-text-inner" data-text="Zavrieť">Zavrieť</span></span>
+                </button>
+            </div>
+        </div>
+        <div class="relative z-10 flex-1 flex items-center pb-8 overflow-y-auto">
+            <div class="site-container w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
+                <div class="hidden md:flex flex-col gap-10 w-full md:w-1/2 md:pl-8 pt-4">
+                    <div>
+                        <span class="text-white/40 text-xs uppercase tracking-[0.2em] mb-4 block">Kontaktujte nás</span>
+                        <a href="tel:+421 940 776 203" class="text-white hover:text-white/70 transition-colors text-2xl font-light block group"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="+421 940 776 203">+421 940 776 203</span></span></a>
+                        <a href="mailto:najstrecha@centrum.sk" class="text-white hover:text-white/70 transition-colors text-2xl font-light mt-3 block group"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="najstrecha@centrum.sk">najstrecha@centrum.sk</span></span></a>
+                    </div>
+                    <div>
+                        <span class="text-white/40 text-xs uppercase tracking-[0.2em] mb-4 block">Sídlo firmy</span>
+                        <span class="text-white/80 text-xl font-light block"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Kósu Schoppera 8">Kósu Schoppera 8</span></span></span>
+                        <span class="text-white/80 text-xl font-light block mt-2"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Rožňava 048 01">Rožňava 048 01</span></span></span>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
+                    <nav class="flex flex-col gap-5">
+                        <a href="#top" class="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="O nás">O nás</span></span></a>
+                        <a href="#o-nas" class="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Naše služby">Naše služby</span></span></a>
+                        <a href="#tvorba" class="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Galeria">Galeria</span></span></a>
+                        <a href="#referencie" class="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Kontakt">Kontakt</span></span></a>
+                        <a href="#kontakt" class="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Ochrana údajov">Ochrana údajov</span></span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="relative">
+        <div class="relative h-screen w-full">
+            <section id="top" class="fixed inset-0 w-full h-screen overflow-hidden bg-brown z-0">
+                <div id="hero-parallax" class="absolute inset-x-0 -top-[15%] -bottom-[15%]">
+                    <div class="hero-slide active"><img src="assets/hero1.jpg" alt="Naj-strecha s.r.o." class="w-full h-full object-cover"><div class="absolute inset-0 bg-black/30"></div></div>
+                    <div class="hero-slide"><img src="assets/hero2.jpg" alt="Naj-strecha s.r.o." class="w-full h-full object-cover"><div class="absolute inset-0 bg-black/30"></div></div>
+                    <div class="hero-slide"><img src="assets/hero3.jpg" alt="Naj-strecha s.r.o." class="w-full h-full object-cover"><div class="absolute inset-0 bg-black/30"></div></div>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 z-10 pb-16 pt-64 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
+                    <div class="site-container w-full flex flex-col justify-end pointer-events-auto">
+                        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+                            <div class="max-w-7xl">
+                                <div class="flex gap-4 mb-10" id="slide-indicators">
+                                    <button class="slide-ind h-[2px] rounded-full bg-white w-20 transition-all duration-500" data-i="0"></button>
+                                    <button class="slide-ind h-[2px] rounded-full bg-white/30 w-8 hover:bg-white/60 transition-all duration-500" data-i="1"></button>
+                                    <button class="slide-ind h-[2px] rounded-full bg-white/30 w-8 hover:bg-white/60 transition-all duration-500" data-i="2"></button>
+                                </div>
+                                <h1 id="hero-title" class="font-heading text-5xl md:text-7xl lg:text-[5.5rem] text-white mb-8 leading-[1.05] tracking-tight font-bold">Strechy Rožňava</h1>
+                                <p id="hero-sub" class="text-lg md:text-xl text-white/90 font-light max-w-3xl leading-relaxed">Kvalitné materiály a priame ceny od výrobcu.</p>
+                            </div>
+                            <div class="shrink-0 lg:pb-2">
+                                <a href="#kontakt" class="group flex justify-center bg-brown/90 hover:bg-brown backdrop-blur-md text-white text-center px-16 py-6 rounded-md transition-colors border border-white/10 uppercase tracking-[0.2em] text-sm font-medium w-full sm:w-auto min-w-[280px]">
+                                    <span class="hover-split-text"><span class="hover-split-text-inner" data-text="Informujte sa u nás">Informujte sa u nás</span></span>
+                                    <span class="ml-2 transition-transform duration-500 group-hover:translate-x-1">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="relative z-10 bg-[#fafaf8]">
+            <section class="bg-brown text-white py-12 relative z-10">
+                <div class="site-container"><div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="fade-in "><div class="text-4xl md:text-5xl font-bold font-heading">11</div><div class="text-sm text-white/80 mt-1 tracking-wide">rokov na trhu</div></div>
+                    <div class="fade-in delay-100"><div class="text-4xl md:text-5xl font-bold font-heading">2-3</div><div class="text-sm text-white/80 mt-1 tracking-wide">týždne realizácie</div></div>
+                    <div class="fade-in delay-200"><div class="text-4xl md:text-5xl font-bold font-heading">Východné Slovensko</div><div class="text-sm text-white/80 mt-1 tracking-wide">oblasť pôsobenia</div></div>
+                    <div class="fade-in delay-300"><div class="text-4xl md:text-5xl font-bold font-heading">ISO 9001</div><div class="text-sm text-white/80 mt-1 tracking-wide">certifikát kvality</div></div>
+                </div></div>
+            </section>
+            <section id="o-nas" class="section-large relative grain-overlay" style="background-image:url('assets/texture.svg'),linear-gradient(to bottom,#F5F0EB,#fafaf8)">
+                <div class="site-container relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div class="fade-in-left">
+                            <div class="divider mb-6"></div>
+                            <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6 tracking-tight">O našej firme</h2>
+                            <p class="text-muted leading-relaxed text-lg mb-6 font-medium">&bdquo;Zásadne sa zaoberáme len kvalitnými materiálmi a spoločnosťami s ktorými už dlhodobo spolupracujeme.&ldquo;</p>
+                            <p class="text-muted leading-relaxed mb-4">Spoločnosť Naj-strecha s.r.o. bola založená v roku 2011 a na trhu pôsobí už 11 rokov. Ceny určujeme individuálne na základe osobného stretnutia a presného zamerania strechy.</p>
+                            <p class="text-muted leading-relaxed mb-8">Máme vlastných zamestnancov a materiály objednávame priamo od výrobcu, čo nám umožňuje ponúknuť výrazne lepšie ceny. Sme flexibilní, zabezpečujeme priame stretnutia a ponúkame dôchodcovskú zľavu.</p>
+                            <a href="#kontakt" class="btn-primary group uppercase tracking-widest text-xs font-medium" style="background:#272220"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Zavolajte nám">Zavolajte nám</span></span></a>
+                        </div>
+                        <div class="fade-in-right">
+                            <div class="img-hover-zoom rounded-2xl overflow-hidden shadow-2xl relative">
+                                <img src="assets/about.jpg" alt="O našej firme" class="w-full aspect-[4/3] md:h-[500px] object-cover">
+                                <div class="image-curtain absolute inset-0 bg-brown z-20" style="transition:opacity 1.2s ease-out"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="tvorba" class="section-large">
+                <div class="site-container">
+                    <div class="fade-in text-center mb-16">
+                        <div class="divider mx-auto mb-6"></div>
+                        <h2 class="font-heading text-5xl md:text-7xl mb-6 font-bold tracking-tight">Naše služby</h2>
+                        <p class="text-muted max-w-2xl mx-auto">Zabezpečujeme komplexné riešenia pre vaše strechy a komíny s dôrazom na kvalitu a rýchlosť.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="fade-in  group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                            <div class="img-hover-zoom h-72 relative"><img src="assets/service1.jpg" alt="Izolácia striech" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"><div class="image-curtain absolute inset-0 bg-brown z-20" style="transition:opacity 1s ease-out"></div></div>
+                            <div class="p-8"><h3 class="text-xl font-semibold mb-3">Izolácia striech</h3><p class="text-white/70 text-sm leading-relaxed">Izolácia eternitových a plechových striech bitumenovou kritinou.</p></div>
+                        </div>
+                        <div class="fade-in delay-100 group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                            <div class="img-hover-zoom h-72 relative"><img src="assets/service2.jpg" alt="Oprava komínov" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"><div class="image-curtain absolute inset-0 bg-brown z-20" style="transition:opacity 1s ease-out"></div></div>
+                            <div class="p-8"><h3 class="text-xl font-semibold mb-3">Oprava komínov</h3><p class="text-white/70 text-sm leading-relaxed">Profesionálna oprava komínov a údržba strešných prvkov.</p></div>
+                        </div>
+                        <div class="fade-in delay-200 group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                            <div class="img-hover-zoom h-72 relative"><img src="assets/service3.jpg" alt="Odkvapové systémy" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"><div class="image-curtain absolute inset-0 bg-brown z-20" style="transition:opacity 1s ease-out"></div></div>
+                            <div class="p-8"><h3 class="text-xl font-semibold mb-3">Odkvapové systémy</h3><p class="text-white/70 text-sm leading-relaxed">Montáž odkvapových systémov pre správny odvod vody.</p></div>
+                        </div>
+                        <div class="fade-in delay-300 group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                            <div class="img-hover-zoom h-72 relative"><img src="assets/service4.jpg" alt="Strešné krytiny" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"><div class="image-curtain absolute inset-0 bg-brown z-20" style="transition:opacity 1s ease-out"></div></div>
+                            <div class="p-8"><h3 class="text-xl font-semibold mb-3">Strešné krytiny</h3><p class="text-white/70 text-sm leading-relaxed">Používame certifikované pásy Mineral Design od INDEX S.P.A.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="referencie" class="section-large relative grain-overlay" style="background-image:url('assets/texture.svg'),linear-gradient(to bottom,#fafaf8,#F9FAFB,#fafaf8)">
+                <div class="site-container">
+                    <div class="fade-in"><div class="flex items-end justify-between mb-10"><div><div class="divider mb-6"></div><h2 class="font-heading text-5xl md:text-7xl font-bold tracking-tight">Realizácie</h2><p class="text-muted mt-3">Pracujeme na celom východnom Slovensku, vrátane Liptova a Oravy.</p></div></div></div>
+                    <div class="fade-in-scale relative">
+                        <button id="slider-left" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+                        <button id="slider-right" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+                        <div id="ref-slider" class="ref-slider">
+                            <div class="ref-card group"><img src="assets/ref1.jpg" alt="Izolácia plechovej strechy"><div class="ref-card-overlay"><p class="text-xs uppercase tracking-widest text-white/70 mb-1">Strecha</p><h3 class="text-lg font-medium">Izolácia plechovej strechy</h3><p class="text-sm text-white/80 mt-1">Rožňava</p></div></div>
+                            <div class="ref-card group"><img src="assets/ref2.jpg" alt="Oprava komína"><div class="ref-card-overlay"><p class="text-xs uppercase tracking-widest text-white/70 mb-1">Komín</p><h3 class="text-lg font-medium">Oprava komína</h3><p class="text-sm text-white/80 mt-1">Rimavská Sobota</p></div></div>
+                            <div class="ref-card group"><img src="assets/ref3.jpg" alt="Montáž odkvapového systému"><div class="ref-card-overlay"><p class="text-xs uppercase tracking-widest text-white/70 mb-1">Odkvapy</p><h3 class="text-lg font-medium">Montáž odkvapového systému</h3><p class="text-sm text-white/80 mt-1">Lučenec</p></div></div>
+                            <div class="ref-card group"><img src="assets/ref4.jpg" alt="Rekonštrukcia eternitovej strechy"><div class="ref-card-overlay"><p class="text-xs uppercase tracking-widest text-white/70 mb-1">Eternit</p><h3 class="text-lg font-medium">Rekonštrukcia eternitovej strechy</h3><p class="text-sm text-white/80 mt-1">Veľký Krtíš</p></div></div>
+                            <div class="ref-card group"><img src="assets/ref5.jpg" alt="Izolácia bitumenovou kritinou"><div class="ref-card-overlay"><p class="text-xs uppercase tracking-widest text-white/70 mb-1">Strecha</p><h3 class="text-lg font-medium">Izolácia bitumenovou kritinou</h3><p class="text-sm text-white/80 mt-1">Liptov</p></div></div>
+                            <div class="ref-card group"><img src="assets/ref6.jpg" alt="Údržba komínového systému"><div class="ref-card-overlay"><p class="text-xs uppercase tracking-widest text-white/70 mb-1">Komín</p><h3 class="text-lg font-medium">Údržba komínového systému</h3><p class="text-sm text-white/80 mt-1">Orava</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer id="kontakt" class="relative text-white mt-auto overflow-hidden">
+                <div class="absolute inset-0 z-0"><img src="assets/footerBg.jpg" alt="" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-b from-brown/40 via-brown/90 to-brown"></div></div>
+                <div class="relative z-10">
+                    <div class="site-container pt-32 pb-16 text-center"><div class="fade-in">
+                        <h2 class="font-heading text-4xl md:text-5xl text-white mb-6 font-bold tracking-tight">Máte záujem o strechu?</h2>
+                        <p class="text-white/80 text-lg mb-10 max-w-2xl mx-auto">Kontaktujte nás pre osobné stretnutie a zameranie vašej strechy.</p>
+                        <div class="flex gap-4 justify-center flex-wrap">
+                            <a href="tel:+421 940 776 203" class="btn-primary group uppercase tracking-widest text-xs font-medium" style="background:white!important;color:#272220!important"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Zavolajte nám">Zavolajte nám</span></span></a>
+                            <a href="mailto:najstrecha@centrum.sk" class="btn-outline group uppercase tracking-widest text-xs font-medium" style="border-color:white!important;color:white!important"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Napíšte e-mail">Napíšte e-mail</span></span></a>
+                        </div>
+                    </div></div>
+                    <div class="site-container pb-12 pt-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                            <div><span class="text-xl md:text-2xl font-extrabold text-white font-heading block mb-6">Naj-strecha s.r.o.</span><p class="text-white/60 text-sm leading-relaxed">Naj-strecha s.r.o. je spoľahlivý partner pre strešné práce s dlhoročnou tradíciou a vlastným tímom.</p></div>
+                            <div><h4 class="font-medium text-sm uppercase tracking-wider mb-6 text-white/70">Navigácia</h4><ul class="space-y-4">
+                                <li><a href="#top" class="text-white/60 hover:text-white transition-colors text-base group block"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="O nás">O nás</span></span></a></li>
+                                <li><a href="#o-nas" class="text-white/60 hover:text-white transition-colors text-base group block"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Služby">Služby</span></span></a></li>
+                                <li><a href="#tvorba" class="text-white/60 hover:text-white transition-colors text-base group block"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Galeria">Galeria</span></span></a></li>
+                                <li><a href="#referencie" class="text-white/60 hover:text-white transition-colors text-base group block"><span class="hover-split-text"><span class="hover-split-text-inner" data-text="Kontakt">Kontakt</span></span></a></li>
+                            </ul></div>
+                            <div><h4 class="font-medium text-sm uppercase tracking-wider mb-6 text-white/70">Služby</h4><ul class="space-y-4 text-base text-white/60">
+                                <li>Izolácia striech</li>
+                                <li>Oprava komínov</li>
+                                <li>Montáž odkvapov</li>
+                                <li>Bitumenová krytina</li>
+                                <li>Eternitové strechy</li>
+                            </ul></div>
+                            <div><h4 class="font-medium text-sm uppercase tracking-wider mb-6 text-white/70">Kontakt</h4><ul class="space-y-4 text-base text-white/60">
+                                <li>Kósu Schoppera 8</li>
+                                <li>Rožňava 048 01</li>
+                                <li class="pt-2"><a href="tel:+421 940 776 203" class="hover:text-white transition-colors block">+421 940 776 203</a></li>
+                                <li><a href="mailto:najstrecha@centrum.sk" class="hover:text-white transition-colors block">najstrecha@centrum.sk</a></li>
+                            </ul></div>
+                        </div>
+                        <div class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                            <p class="text-white/40 text-xs">© 2024 Naj-strecha s.r.o. Všetky práva vyhradené.</p>
+                            <span class="text-white/40 text-xs">Zásady ochrany osobných údajov</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+
+<!-- Sticky CTA Banner -->
+<div id="cta-banner" style="position:fixed;bottom:-110px;left:50%;transform:translateX(-50%);z-index:9999;transition:bottom .5s cubic-bezier(.34,1.56,.64,1);background:#fff;color:#111;padding:14px 14px 14px 22px;border-radius:999px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 40px rgba(0,0,0,.18);white-space:nowrap;border:1.5px solid #e5e7eb;">
+  <p style="margin:0;font-size:.85rem;font-weight:700;">Páči sa mi to</p>
+  <a id="cta-btn" href="#" style="background:#111;color:#fff;padding:9px 18px;border-radius:999px;font-weight:700;font-size:.78rem;text-decoration:none;display:inline-block;cursor:pointer;">Ozvite sa mi</a>
+  <button onclick="document.getElementById('cta-banner').style.bottom='-110px'" style="background:none;border:none;color:#9ca3af;cursor:pointer;font-size:1.3rem;padding:0 4px;line-height:1;font-family:sans-serif;">×</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
