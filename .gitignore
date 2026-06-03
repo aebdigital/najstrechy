@@ -11,6 +11,7 @@
 # misc
 .DS_Store
 *.pem
+_source_mirror/
 
 # debug
 npm-debug.log*

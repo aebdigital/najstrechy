@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import SiteHeader from '@/components/SiteHeader';
+import SubpageHero from '@/components/SubpageHero';
 
 export const metadata: Metadata = {
   title: 'Najlepšia oprava strechy – Naj-strecha s.r.o.',
@@ -11,42 +13,18 @@ export const metadata: Metadata = {
 export default function ClanokPage() {
   return (
     <>
-      {/* Simple header for the subpage */}
-      <header className="sticky top-0 z-50 bg-brown/95 backdrop-blur-md border-b border-white/10">
-        <div className="site-container flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="text-lg md:text-2xl font-extrabold tracking-tight text-white font-heading">
-            Naj-strecha s.r.o.
-          </Link>
-          <Link
-            href="/"
-            className="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 hover:bg-white/10 group"
-          >
-            <span className="hover-split-text">
-              <span className="hover-split-text-inner" data-text="← Späť na úvod">
-                ← Späť na úvod
-              </span>
-            </span>
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="bg-[#fafaf8]">
-        {/* Title */}
-        <section className="bg-brown text-white">
-          <div className="site-container py-16 md:py-24">
-            <span className="text-white/40 text-xs uppercase tracking-[0.2em] mb-4 block">Z médií · Odborný článok</span>
-            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
-              Najlepšia oprava strechy
-            </h1>
-            <p className="text-white/80 text-lg md:text-xl font-light max-w-3xl mt-6 leading-relaxed">
-              O problematike renovácie a opravy striech vám v tomto článku poskytuje informácie Attila Sivoš, konateľ
-              spoločnosti Naj-strecha s.r.o.
-            </p>
-          </div>
-        </section>
+        <SubpageHero
+          eyebrow="Z médií · Odborný článok"
+          title="Najlepšia oprava strechy"
+          summary="O problematike renovácie a opravy striech vám v tomto článku poskytuje informácie Attila Sivoš, konateľ spoločnosti Naj-strecha s.r.o."
+          image="/assets/hero3.jpg"
+        />
 
         {/* Body */}
-        <section className="section-large">
+        <section className="section-large fade-up-on-load load-delay-100">
           <div className="site-container">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               <article className="lg:col-span-7 max-w-2xl">
@@ -99,7 +77,7 @@ export default function ClanokPage() {
                   súvisiace so stavbou.
                 </p>
 
-                <div className="border-l-2 border-[#A38E7E] pl-6 py-1">
+                <div className="border-l-2 border-accent pl-6 py-1">
                   <p className="text-dark leading-relaxed font-medium">
                     Na nami vykonanú izoláciu striech a renovačné práce poskytujeme 15-ročnú písomnú záruku.
                   </p>
@@ -126,7 +104,7 @@ export default function ClanokPage() {
                       <a
                         href="tel:+421 940 776 203"
                         className="btn-primary group uppercase tracking-widest text-xs font-medium text-center"
-                        style={{ background: 'white', color: '#272220' }}
+                        style={{ background: 'white', color: '#144269' }}
                       >
                         <span className="hover-split-text">
                           <span className="hover-split-text-inner" data-text="+421 940 776 203">

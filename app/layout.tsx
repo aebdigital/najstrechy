@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description:
     'Profesionálne strešné práce, izolácie a opravy komínov. Flexibilná firma s vlastnými zamestnancami, rýchla realizácia a priame ceny od výrobcu.',
   robots: { index: false, follow: false },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

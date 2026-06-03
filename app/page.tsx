@@ -1,191 +1,14 @@
 import Link from 'next/link';
-import CtaBanner from '@/components/CtaBanner';
+import GalleryLightbox from '@/components/GalleryLightbox';
 import Scripts from '@/components/Scripts';
+import SiteHeader from '@/components/SiteHeader';
+import { galleryImages } from './gallery-images';
+import { services } from '@/data/services';
 
 export default function Home() {
   return (
     <>
-      <header id="site-header" className="site-header fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="site-container flex items-center justify-between h-16 md:h-24">
-          <div className="hidden md:flex w-1/3 items-center">
-            <button className="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 hover:bg-white/10 backdrop-blur-sm group">
-              <span className="hover-split-text">
-                <span className="hover-split-text-inner" data-text="SK">
-                  SK
-                </span>
-              </span>
-            </button>
-          </div>
-          <div className="flex-1 md:w-1/3 flex justify-start md:justify-center">
-            <a href="#" className="text-xl md:text-2xl font-extrabold tracking-tight text-white font-heading">
-              Naj-strecha s.r.o.
-            </a>
-          </div>
-          <div className="flex md:w-1/3 justify-end items-center">
-            <button
-              id="menu-toggle"
-              className="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 flex items-center gap-3 hover:bg-white/10 backdrop-blur-sm group"
-            >
-              <div className="w-4 flex flex-col gap-1">
-                <span className="w-full h-[1.5px] bg-white rounded-full"></span>
-                <span className="w-full h-[1.5px] bg-white rounded-full"></span>
-              </div>
-              <span className="hover-split-text">
-                <span className="hover-split-text-inner" data-text="Menu">
-                  Menu
-                </span>
-              </span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div
-        id="menu-overlay"
-        className="fixed top-0 inset-x-0 h-screen md:h-[60vh] z-[60] bg-brown flex flex-col overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.5)] border-b border-white/10"
-      >
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: "url('/assets/texture.svg')",
-            backgroundSize: 'cover',
-            filter: 'invert(1)',
-            opacity: 0.3,
-          }}
-        ></div>
-        <div className="relative z-10 site-container flex items-center justify-between h-24 shrink-0">
-          <div className="w-1/3 flex items-center">
-            <button className="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 hover:bg-white/10">
-              <span className="hover-split-text">
-                <span className="hover-split-text-inner" data-text="SK">
-                  SK
-                </span>
-              </span>
-            </button>
-          </div>
-          <div className="w-1/3 flex justify-center">
-            <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white font-heading">
-              Naj-strecha s.r.o.
-            </span>
-          </div>
-          <div className="w-1/3 flex justify-end">
-            <button
-              id="menu-close"
-              className="text-white text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 flex items-center gap-3 hover:bg-white/10 group"
-            >
-              <span className="relative w-4 h-4 flex items-center justify-center">
-                <span className="absolute w-full h-[1.5px] bg-white rotate-45 rounded-full"></span>
-                <span className="absolute w-full h-[1.5px] bg-white -rotate-45 rounded-full"></span>
-              </span>
-              <span className="hover-split-text">
-                <span className="hover-split-text-inner" data-text="Zavrieť">
-                  Zavrieť
-                </span>
-              </span>
-            </button>
-          </div>
-        </div>
-        <div className="relative z-10 flex-1 flex items-center pb-8 overflow-y-auto">
-          <div className="site-container w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
-            <div className="hidden md:flex flex-col gap-10 w-full md:w-1/2 md:pl-8 pt-4">
-              <div>
-                <span className="text-white/40 text-xs uppercase tracking-[0.2em] mb-4 block">Kontaktujte nás</span>
-                <a
-                  href="tel:+421 940 776 203"
-                  className="text-white hover:text-white/70 transition-colors text-2xl font-light block group"
-                >
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="+421 940 776 203">
-                      +421 940 776 203
-                    </span>
-                  </span>
-                </a>
-                <a
-                  href="mailto:najstrecha@centrum.sk"
-                  className="text-white hover:text-white/70 transition-colors text-2xl font-light mt-3 block group"
-                >
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="najstrecha@centrum.sk">
-                      najstrecha@centrum.sk
-                    </span>
-                  </span>
-                </a>
-              </div>
-              <div>
-                <span className="text-white/40 text-xs uppercase tracking-[0.2em] mb-4 block">Sídlo firmy</span>
-                <span className="text-white/80 text-xl font-light block">
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="Kósu Schoppera 8">
-                      Kósu Schoppera 8
-                    </span>
-                  </span>
-                </span>
-                <span className="text-white/80 text-xl font-light block mt-2">
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="Rožňava 048 01">
-                      Rožňava 048 01
-                    </span>
-                  </span>
-                </span>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
-              <nav className="flex flex-col gap-5">
-                <a
-                  href="#top"
-                  className="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"
-                >
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="O nás">
-                      O nás
-                    </span>
-                  </span>
-                </a>
-                <a
-                  href="#o-nas"
-                  className="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"
-                >
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="Naše služby">
-                      Naše služby
-                    </span>
-                  </span>
-                </a>
-                <a
-                  href="#tvorba"
-                  className="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"
-                >
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="Galeria">
-                      Galeria
-                    </span>
-                  </span>
-                </a>
-                <a
-                  href="#referencie"
-                  className="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"
-                >
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="Kontakt">
-                      Kontakt
-                    </span>
-                  </span>
-                </a>
-                <a
-                  href="#kontakt"
-                  className="menu-link text-4xl md:text-5xl lg:text-6xl font-heading text-white tracking-tight block group font-bold"
-                >
-                  <span className="hover-split-text">
-                    <span className="hover-split-text-inner" data-text="Ochrana údajov">
-                      Ochrana údajov
-                    </span>
-                  </span>
-                </a>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SiteHeader />
 
       <main className="relative">
         <div className="relative h-screen w-full">
@@ -235,7 +58,7 @@ export default function Home() {
                   <div className="shrink-0 lg:pb-2">
                     <a
                       href="#kontakt"
-                      className="group flex justify-center bg-brown/90 hover:bg-brown backdrop-blur-md text-white text-center px-16 py-6 rounded-md transition-colors border border-white/10 uppercase tracking-[0.2em] text-sm font-medium w-full sm:w-auto min-w-[280px]"
+                      className="group flex justify-center bg-primary/95 hover:bg-primary-dark backdrop-blur-md text-white text-center px-16 py-6 rounded-md transition-colors border border-white/10 uppercase tracking-[0.2em] text-sm font-medium w-full sm:w-auto min-w-[280px]"
                     >
                       <span className="hover-split-text">
                         <span className="hover-split-text-inner" data-text="Informujte sa u nás">
@@ -305,7 +128,6 @@ export default function Home() {
                   <a
                     href="#kontakt"
                     className="btn-primary group uppercase tracking-widest text-xs font-medium"
-                    style={{ background: '#272220' }}
                   >
                     <span className="hover-split-text">
                       <span className="hover-split-text-inner" data-text="Zavolajte nám">
@@ -342,128 +164,37 @@ export default function Home() {
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="fade-in group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                  <div className="img-hover-zoom h-72 relative">
-                    <img
-                      src="/assets/service4.jpg"
-                      alt="Eternitové, plechové a šindľové strechy"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <div
-                      className="image-curtain absolute inset-0 bg-brown z-20"
-                      style={{ transition: 'opacity 1s ease-out' }}
-                    ></div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-xl font-semibold mb-3">Eternitové, plechové a šindľové strechy</h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      Pokrývame, opravujeme a izolujeme eternitové, plechové aj šindľové strechy. Postaráme sa o kompletnú
-                      obnovu strešného plášťa – od zamerania až po finálnu krytinu.
-                    </p>
-                  </div>
-                </div>
-                <div className="fade-in delay-100 group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                  <div className="img-hover-zoom h-72 relative">
-                    <img
-                      src="/assets/service1.jpg"
-                      alt="Izolácia striech"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <div
-                      className="image-curtain absolute inset-0 bg-brown z-20"
-                      style={{ transition: 'opacity 1s ease-out' }}
-                    ></div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-xl font-semibold mb-3">Izolácia striech</h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      Bezdemontážna renovácia a izolácia striech bitúmenovou krytinou s estetickým efektom škridle. Ľahká,
-                      dokonale vodeodolná a odolná voči UV žiareniu.
-                    </p>
-                  </div>
-                </div>
-                <div className="fade-in delay-200 group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                  <div className="img-hover-zoom h-72 relative">
-                    <img
-                      src="/assets/sluzba-ploche.jpg"
-                      alt="Ploché strechy a tepelná izolácia"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <div
-                      className="image-curtain absolute inset-0 bg-brown z-20"
-                      style={{ transition: 'opacity 1s ease-out' }}
-                    ></div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-xl font-semibold mb-3">Ploché strechy a tepelná izolácia</h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      Oprava a montáž plochých striech vrátane tepelnej izolácie. Zaistíme správne vyspádovanie,
-                      spoľahlivú hydroizoláciu a dlhú životnosť strechy.
-                    </p>
-                  </div>
-                </div>
-                <div className="fade-in group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                  <div className="img-hover-zoom h-72 relative">
-                    <img
-                      src="/assets/service2.jpg"
-                      alt="Oprava komínov"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <div
-                      className="image-curtain absolute inset-0 bg-brown z-20"
-                      style={{ transition: 'opacity 1s ease-out' }}
-                    ></div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-xl font-semibold mb-3">Oprava komínov</h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      Profesionálna oprava a údržba komínov a ostatných strešných prvkov pre tesnú a bezpečnú strechu.
-                    </p>
-                  </div>
-                </div>
-                <div className="fade-in delay-100 group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                  <div className="img-hover-zoom h-72 relative">
-                    <img
-                      src="/assets/service3.jpg"
-                      alt="Odkvapové systémy"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <div
-                      className="image-curtain absolute inset-0 bg-brown z-20"
-                      style={{ transition: 'opacity 1s ease-out' }}
-                    ></div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-xl font-semibold mb-3">Odkvapové systémy</h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      Montáž a výmena odkvapových systémov pre správny odvod dažďovej vody a ochranu fasády domu.
-                    </p>
-                  </div>
-                </div>
-                {/* TODO: nahradiť obrázok fotkou z Facebooku (fúkaná/striekaná izolácia). Dočasne použitý existujúci záber. */}
-                <div className="fade-in delay-200 group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                  <div className="img-hover-zoom h-72 relative">
-                    <img
-                      src="/assets/ref1.jpg"
-                      alt="Fúkaná a striekaná izolácia"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                    <div
-                      className="image-curtain absolute inset-0 bg-brown z-20"
-                      style={{ transition: 'opacity 1s ease-out' }}
-                    ></div>
-                    <span className="absolute top-4 left-4 z-30 text-[11px] uppercase tracking-widest bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1">
-                      Letná sezóna
-                    </span>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-xl font-semibold mb-3">Fúkaná a striekaná izolácia</h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      Fúkaná a striekaná izolácia striech a podkroví – rýchle a efektívne zateplenie. Sezónna služba
-                      dostupná iba počas letných mesiacov.
-                    </p>
-                  </div>
-                </div>
+                {services.map((service, index) => (
+                  <Link
+                    key={service.slug}
+                    href={`/sluzby/${service.slug}`}
+                    className={`fade-in group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500 ${
+                      index % 3 === 1 ? 'delay-100' : index % 3 === 2 ? 'delay-200' : ''
+                    }`}
+                  >
+                    <div className="img-hover-zoom h-72 relative">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                      />
+                      <div
+                        className="image-curtain absolute inset-0 bg-brown z-20"
+                        style={{ transition: 'opacity 1s ease-out' }}
+                      ></div>
+                      <span className="absolute top-4 left-4 z-30 text-[11px] uppercase tracking-widest bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1">
+                        {service.eyebrow}
+                      </span>
+                    </div>
+                    <div className="p-8">
+                      <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">{service.summary}</p>
+                      <span className="mt-6 inline-flex text-xs font-semibold uppercase tracking-[0.18em] text-white">
+                        Detail služby
+                      </span>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </section>
@@ -487,73 +218,8 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="fade-in-scale relative">
-                <button
-                  id="slider-left"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                </button>
-                <button
-                  id="slider-right"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                </button>
-                <div id="ref-slider" className="ref-slider">
-                  <div className="ref-card group">
-                    <img src="/assets/ref1.jpg" alt="Izolácia plechovej strechy" />
-                    <div className="ref-card-overlay">
-                      <p className="text-xs uppercase tracking-widest text-white/70 mb-1">Strecha</p>
-                      <h3 className="text-lg font-medium">Izolácia plechovej strechy</h3>
-                      <p className="text-sm text-white/80 mt-1">Rožňava</p>
-                    </div>
-                  </div>
-                  <div className="ref-card group">
-                    <img src="/assets/ref2.jpg" alt="Oprava komína" />
-                    <div className="ref-card-overlay">
-                      <p className="text-xs uppercase tracking-widest text-white/70 mb-1">Komín</p>
-                      <h3 className="text-lg font-medium">Oprava komína</h3>
-                      <p className="text-sm text-white/80 mt-1">Rimavská Sobota</p>
-                    </div>
-                  </div>
-                  <div className="ref-card group">
-                    <img src="/assets/ref3.jpg" alt="Montáž odkvapového systému" />
-                    <div className="ref-card-overlay">
-                      <p className="text-xs uppercase tracking-widest text-white/70 mb-1">Odkvapy</p>
-                      <h3 className="text-lg font-medium">Montáž odkvapového systému</h3>
-                      <p className="text-sm text-white/80 mt-1">Lučenec</p>
-                    </div>
-                  </div>
-                  <div className="ref-card group">
-                    <img src="/assets/ref4.jpg" alt="Rekonštrukcia eternitovej strechy" />
-                    <div className="ref-card-overlay">
-                      <p className="text-xs uppercase tracking-widest text-white/70 mb-1">Eternit</p>
-                      <h3 className="text-lg font-medium">Rekonštrukcia eternitovej strechy</h3>
-                      <p className="text-sm text-white/80 mt-1">Veľký Krtíš</p>
-                    </div>
-                  </div>
-                  <div className="ref-card group">
-                    <img src="/assets/ref5.jpg" alt="Izolácia bitumenovou kritinou" />
-                    <div className="ref-card-overlay">
-                      <p className="text-xs uppercase tracking-widest text-white/70 mb-1">Strecha</p>
-                      <h3 className="text-lg font-medium">Izolácia bitumenovou kritinou</h3>
-                      <p className="text-sm text-white/80 mt-1">Liptov</p>
-                    </div>
-                  </div>
-                  <div className="ref-card group">
-                    <img src="/assets/ref6.jpg" alt="Údržba komínového systému" />
-                    <div className="ref-card-overlay">
-                      <p className="text-xs uppercase tracking-widest text-white/70 mb-1">Komín</p>
-                      <h3 className="text-lg font-medium">Údržba komínového systému</h3>
-                      <p className="text-sm text-white/80 mt-1">Orava</p>
-                    </div>
-                  </div>
-                </div>
+              <div className="fade-in-scale">
+                <GalleryLightbox images={galleryImages} />
               </div>
             </div>
           </section>
@@ -578,7 +244,6 @@ export default function Home() {
                   <Link
                     href="/clanok"
                     className="btn-primary group uppercase tracking-widest text-xs font-medium"
-                    style={{ background: '#272220' }}
                   >
                     <span className="hover-split-text">
                       <span className="hover-split-text-inner" data-text="Čítať celý článok">
@@ -618,7 +283,7 @@ export default function Home() {
                     <a
                       href="tel:+421 940 776 203"
                       className="btn-primary group uppercase tracking-widest text-xs font-medium"
-                      style={{ background: 'white', color: '#272220' }}
+                      style={{ background: 'white', color: '#144269' }}
                     >
                       <span className="hover-split-text">
                         <span className="hover-split-text-inner" data-text="Zavolajte nám">
@@ -687,8 +352,8 @@ export default function Home() {
                         </a>
                       </li>
                       <li>
-                        <a
-                          href="#referencie"
+                        <Link
+                          href="/kontakt"
                           className="text-white/60 hover:text-white transition-colors text-base group block"
                         >
                           <span className="hover-split-text">
@@ -696,7 +361,7 @@ export default function Home() {
                               Kontakt
                             </span>
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <Link
@@ -715,11 +380,13 @@ export default function Home() {
                   <div>
                     <h4 className="font-medium text-sm uppercase tracking-wider mb-6 text-white/70">Služby</h4>
                     <ul className="space-y-4 text-base text-white/60">
-                      <li>Izolácia striech</li>
-                      <li>Oprava komínov</li>
-                      <li>Montáž odkvapov</li>
-                      <li>Bitumenová krytina</li>
-                      <li>Eternitové strechy</li>
+                      {services.map((service) => (
+                        <li key={service.slug}>
+                          <Link href={`/sluzby/${service.slug}`} className="hover:text-white transition-colors">
+                            {service.shortTitle}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   <div>
@@ -750,7 +417,6 @@ export default function Home() {
         </div>
       </main>
 
-      <CtaBanner />
       <Scripts />
     </>
   );

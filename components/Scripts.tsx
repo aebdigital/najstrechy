@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import Lenis from 'lenis';
 
 type SlideText = { title: string; subtitle: string };
 
@@ -12,47 +11,15 @@ const slideTexts: SlideText[] = [
 ];
 
 /**
- * Faithful port of the original scrape's `js/script.js`. All interactions are
- * wired to the markup rendered by the page via DOM ids/classes, then torn down
- * on unmount so React's dev double-invoke doesn't duplicate listeners.
+ * Page interactions wired to the rendered markup, then torn down on unmount so
+ * React's dev double-invoke doesn't duplicate listeners.
  */
 export default function Scripts() {
   useEffect(() => {
-    // ----- Lenis smooth scroll -----
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
-    });
-    let rafId = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    };
-    rafId = requestAnimationFrame(raf);
-
     // ----- Header background on scroll -----
     const header = document.getElementById('site-header');
     const onHeaderScroll = () => header?.classList.toggle('scrolled', window.scrollY > 50);
     window.addEventListener('scroll', onHeaderScroll);
-
-    // ----- Mobile menu -----
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuClose = document.getElementById('menu-close');
-    const menuLinks = document.querySelectorAll<HTMLElement>('.menu-link');
-    const openMenu = () => {
-      document.body.classList.add('menu-open');
-      document.body.style.overflow = 'hidden';
-      lenis.stop();
-    };
-    const closeMenu = () => {
-      document.body.classList.remove('menu-open');
-      document.body.style.overflow = '';
-      lenis.start();
-    };
-    menuToggle?.addEventListener('click', openMenu);
-    menuClose?.addEventListener('click', closeMenu);
-    menuLinks.forEach((l) => l.addEventListener('click', closeMenu));
 
     // ----- Scroll reveal -----
     const fadeObs = new IntersectionObserver(
@@ -120,15 +87,6 @@ export default function Scripts() {
     window.addEventListener('scroll', onParallax);
     window.dispatchEvent(new Event('scroll'));
 
-    // ----- References slider arrows -----
-    const refSlider = document.getElementById('ref-slider');
-    const sliderLeft = document.getElementById('slider-left');
-    const sliderRight = document.getElementById('slider-right');
-    const onLeft = () => refSlider?.scrollBy({ left: -500, behavior: 'smooth' });
-    const onRight = () => refSlider?.scrollBy({ left: 500, behavior: 'smooth' });
-    sliderLeft?.addEventListener('click', onLeft);
-    sliderRight?.addEventListener('click', onRight);
-
     // ----- Analytics: scroll depth -----
     let scrollMarks = [25, 50, 75, 100];
     const onScrollDepth = () => {
@@ -159,27 +117,18 @@ export default function Scripts() {
     mailEls.forEach((el) => el.addEventListener('click', onMail));
 
     return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
       window.removeEventListener('scroll', onHeaderScroll);
-      menuToggle?.removeEventListener('click', openMenu);
-      menuClose?.removeEventListener('click', closeMenu);
-      menuLinks.forEach((l) => l.removeEventListener('click', closeMenu));
       fadeObs.disconnect();
       curtainObs.disconnect();
       indHandlers.forEach((h, ind) => ind.removeEventListener('click', h));
       clearInterval(slideTimer);
       window.removeEventListener('scroll', onParallax);
-      sliderLeft?.removeEventListener('click', onLeft);
-      sliderRight?.removeEventListener('click', onRight);
       window.removeEventListener('scroll', onScrollDepth);
       clearTimeout(t30);
       clearTimeout(t60);
       clearTimeout(t120);
       telEls.forEach((el) => el.removeEventListener('click', onTel));
       mailEls.forEach((el) => el.removeEventListener('click', onMail));
-      document.body.classList.remove('menu-open');
-      document.body.style.overflow = '';
     };
   }, []);
 
