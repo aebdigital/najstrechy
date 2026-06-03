@@ -78,6 +78,71 @@ footer[id] {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
+.services-menu-trigger {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+}
+.services-megamenu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  height: 30vh;
+  min-height: 230px;
+  max-height: 310px;
+  overflow: hidden;
+  background: #144269;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+}
+.services-menu-trigger:hover .services-megamenu,
+.services-menu-trigger:focus-within .services-megamenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.mega-service-card {
+  position: relative;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #0f3658;
+  text-decoration: none;
+  isolation: isolate;
+}
+.mega-service-card img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.mega-service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgba(3, 12, 20, 0.86), rgba(3, 12, 20, 0.28) 62%, rgba(3, 12, 20, 0.12)),
+    linear-gradient(90deg, rgba(20, 66, 105, 0.5), rgba(20, 66, 105, 0.12));
+}
+.mega-service-card:hover img,
+.mega-service-card:focus-visible img {
+  transform: scale(1.06);
+}
+.mega-service-card:focus-visible {
+  outline: 3px solid #cc451c;
+  outline-offset: 3px;
+}
 
 /* ----- Subpage heroes ----- */
 .subpage-hero {

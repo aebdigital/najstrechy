@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import { services } from '@/data/services';
 
 const navLinks = [
   { href: '/#o-nas', label: 'O nás' },
-  { href: '/#tvorba', label: 'Služby' },
   { href: '/#referencie', label: 'Galéria' },
   { href: '/clanok', label: 'Článok' },
   { href: '/kontakt', label: 'Kontakt' },
@@ -24,7 +24,36 @@ export default function SiteHeader() {
           aria-label="Hlavná navigácia"
           className="order-3 flex w-full items-center gap-5 overflow-x-auto whitespace-nowrap text-sm font-extrabold uppercase tracking-[0.1em] text-white/80 md:order-none md:w-auto md:flex-1 md:justify-center md:gap-8 md:overflow-visible md:text-base"
         >
-          {navLinks.map((link) => (
+          <Link href="/#o-nas" className="transition-colors hover:text-white">
+            O nás
+          </Link>
+
+          <div className="services-menu-trigger">
+            <Link href="/#tvorba" className="transition-colors hover:text-white" aria-haspopup="true">
+              Služby
+            </Link>
+            <div className="services-megamenu hidden md:block" aria-label="Služby">
+              <div className="site-container h-full py-5">
+                <div className="grid h-full grid-cols-6 gap-3">
+                  {services.map((service) => (
+                    <Link key={service.slug} href={`/sluzby/${service.slug}`} className="mega-service-card group">
+                      <img src={service.image} alt="" />
+                      <div className="relative z-10 mt-auto p-4 text-left text-white">
+                        <span className="mb-3 block text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+                          {service.eyebrow}
+                        </span>
+                        <span className="block whitespace-normal font-heading text-lg font-bold leading-tight tracking-normal">
+                          {service.shortTitle}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {navLinks.slice(1).map((link) => (
             <Link key={link.href} href={link.href} className="transition-colors hover:text-white">
               {link.label}
             </Link>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import SubpageHero from '@/components/SubpageHero';
 
@@ -140,6 +141,8 @@ export default function ClanokPage() {
           </div>
         </section>
       </main>
+
+      <SiteFooter />
     </>
   );
 }
