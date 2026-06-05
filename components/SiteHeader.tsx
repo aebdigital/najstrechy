@@ -3,7 +3,7 @@ import { services } from '@/data/services';
 
 const navLinks = [
   { href: '/#o-nas', label: 'O nás' },
-  { href: '/#referencie', label: 'Galéria' },
+  { href: '/referencie', label: 'Galéria' },
   { href: '/clanok', label: 'Článok' },
   { href: '/kontakt', label: 'Kontakt' },
 ];

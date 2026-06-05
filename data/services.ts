@@ -18,7 +18,7 @@ export const services: Service[] = [
     eyebrow: 'Šikmé strechy',
     summary:
       'Pokrývame, opravujeme a izolujeme eternitové, plechové aj šindľové strechy od zamerania až po finálne detaily.',
-    image: '/assets/service4.jpg',
+    image: '/sluybz/eternit.jpg',
     intro:
       'Zabezpečujeme obnovu a izoláciu šikmých striech tak, aby bol výsledok pevný, vodotesný a esteticky čistý bez zbytočného zásahu do domu.',
     details: [
@@ -49,8 +49,8 @@ export const services: Service[] = [
     shortTitle: 'Ploché strechy',
     eyebrow: 'Ploché strechy',
     summary:
-      'Oprava a montáž plochých striech vrátane tepelnej izolácie, spádovania a spoľahlivej hydroizolácie.',
-    image: '/assets/sluzba-ploche.jpg',
+      'Oprava and montáž plochých striech vrátane tepelnej izolácie, spádovania a spoľahlivej hydroizolácie.',
+    image: '/sluybz/plochestrechz.jpg',
     intro:
       'Pri plochých strechách riešime hydroizoláciu, tepelné vlastnosti aj odvod vody ako jeden funkčný celok.',
     details: [
@@ -65,7 +65,7 @@ export const services: Service[] = [
     shortTitle: 'Oprava komínov',
     eyebrow: 'Strešné detaily',
     summary: 'Oprava komínov, oplechovania a kritických detailov, ktoré často spôsobujú zatekanie strechy.',
-    image: '/assets/service2.jpg',
+    image: '/sluybz/oprava kominov.jpg',
     intro:
       'Komín je jeden z najcitlivejších bodov strechy. Kvalitné oplechovanie a utesnenie pomáha predchádzať zatekaniu aj poškodeniu muriva.',
     details: [
@@ -80,7 +80,7 @@ export const services: Service[] = [
     shortTitle: 'Odkvapové systémy',
     eyebrow: 'Odvod dažďovej vody',
     summary: 'Montáž a výmena odkvapových systémov pre správny odvod vody a ochranu fasády aj základov domu.',
-    image: '/assets/service3.jpg',
+    image: '/sluybz/odkvap.jpg',
     intro:
       'Správne navrhnutý odkvapový systém chráni strechu, fasádu a okolie domu pred nadmernou vlhkosťou.',
     details: [
@@ -96,7 +96,7 @@ export const services: Service[] = [
     eyebrow: 'Letná sezóna',
     summary:
       'Fúkaná a striekaná izolácia striech a podkroví pre rýchle zateplenie počas letnej sezóny.',
-    image: '/assets/ref1.jpg',
+    image: '/sluybz/fukana.webp',
     intro:
       'Fúkaná a striekaná izolácia je vhodná pre podkrovia a ťažšie dostupné priestory, kde je dôležité rovnomerné vyplnenie dutín.',
     details: [

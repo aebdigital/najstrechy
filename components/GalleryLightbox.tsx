@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 type GalleryImage = {
   src: string;
@@ -10,11 +11,15 @@ type GalleryImage = {
 
 type GalleryLightboxProps = {
   images: GalleryImage[];
+  initialIndex?: number | null;
+  onClose?: () => void;
+  hideGrid?: boolean;
 };
 
-export default function GalleryLightbox({ images }: GalleryLightboxProps) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+export default function GalleryLightbox({ images, initialIndex = null, onClose, hideGrid = false }: GalleryLightboxProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(initialIndex);
   const [direction, setDirection] = useState<'center' | 'next' | 'prev'>('center');
+  const [mounted, setMounted] = useState(false);
   const activeImage = activeIndex === null ? null : images[activeIndex];
   const currentIndex = activeIndex ?? 0;
 
@@ -30,7 +35,18 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
     setActiveIndex(normalized);
   };
 
-  const close = () => setActiveIndex(null);
+  const close = () => {
+    setActiveIndex(null);
+    if (onClose) onClose();
+  };
+
+  useEffect(() => {
+    setActiveIndex(initialIndex);
+  }, [initialIndex]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (activeIndex === null) return;
@@ -54,76 +70,77 @@ export default function GalleryLightbox({ images }: GalleryLightboxProps) {
 
   return (
     <>
-      <div id="ref-slider" className="ref-slider" aria-label="Galéria realizácií">
-        {images.map((image, index) => (
-          <button
-            key={image.src}
-            type="button"
-            className="ref-card group"
-            aria-label={`Otvoriť fotografiu realizácie ${index + 1}`}
-            onClick={() => open(index)}
-          >
-            <img src={image.src} alt={image.alt} loading="lazy" />
-          </button>
-        ))}
-      </div>
+      {!hideGrid && (
+        <div id="ref-slider" className="ref-slider" aria-label="Galéria realizácií">
+          {images.map((image, index) => (
+            <button
+              key={image.src}
+              type="button"
+              className="ref-card group"
+              aria-label={`Otvoriť fotografiu realizácie ${index + 1}`}
+              onClick={() => open(index)}
+            >
+              <img src={image.src} alt={image.alt} loading="lazy" />
+            </button>
+          ))}
+        </div>
+      )}
 
-      {activeImage && (
+      {activeImage && mounted && createPortal(
         <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Galéria realizácií">
           <button type="button" className="gallery-lightbox-backdrop" aria-label="Zavrieť galériu" onClick={close} />
 
-          <div className="gallery-lightbox-stage">
-            <button
-              type="button"
-              className="gallery-lightbox-close"
-              aria-label="Zavrieť galériu"
-              onClick={close}
-            >
-              ×
-            </button>
+          <button
+            type="button"
+            className="gallery-lightbox-close"
+            aria-label="Zavrieť galériu"
+            onClick={close}
+          >
+            ×
+          </button>
 
-            <button
-              type="button"
-              className="gallery-lightbox-nav gallery-lightbox-prev"
-              aria-label="Predchádzajúca fotografia"
-              onClick={() => show(currentIndex - 1, 'prev')}
-            >
-              ‹
-            </button>
+          <button
+            type="button"
+            className="gallery-lightbox-nav gallery-lightbox-prev"
+            aria-label="Predchádzajúca fotografia"
+            onClick={() => show(currentIndex - 1, 'prev')}
+          >
+            ‹
+          </button>
 
-            <div className="gallery-lightbox-frame">
-              <img
-                key={activeImage.src}
-                src={activeImage.src}
-                alt={activeImage.alt}
-                className={`gallery-lightbox-image is-${direction}`}
-              />
-            </div>
-
-            <button
-              type="button"
-              className="gallery-lightbox-nav gallery-lightbox-next"
-              aria-label="Nasledujúca fotografia"
-              onClick={() => show(currentIndex + 1, 'next')}
-            >
-              ›
-            </button>
-
-            <div className="gallery-lightbox-thumbs" aria-label="Výber fotografie">
-              {images.map((image, index) => (
-                <button
-                  key={image.src}
-                  type="button"
-                  className={index === currentIndex ? 'active' : ''}
-                  aria-label={`Zobraziť fotografiu realizácie ${index + 1}`}
-                  onClick={() => show(index, index > currentIndex ? 'next' : 'prev')}
-                >
-                  <img src={image.src} alt="" loading="lazy" />
-                </button>
-              ))}
-            </div>
+          <div className="gallery-lightbox-frame">
+            <img
+              key={activeImage.src}
+              src={activeImage.src}
+              alt={activeImage.alt}
+              className={`gallery-lightbox-image is-${direction}`}
+            />
           </div>
-        </div>
+
+          <button
+            type="button"
+            className="gallery-lightbox-nav gallery-lightbox-next"
+            aria-label="Nasledujúca fotografia"
+            onClick={() => show(currentIndex + 1, 'next')}
+          >
+            ›
+          </button>
+
+          <div className="gallery-lightbox-thumbs" aria-label="Výber fotografie">
+            {images.map((image, index) => (
+              <button
+                key={image.src}
+                type="button"
+                className={index === currentIndex ? 'active' : ''}
+                aria-label={`Zobraziť fotografiu realizácie ${index + 1}`}
+                onClick={() => show(index, index > currentIndex ? 'next' : 'prev')}
+              >
+                <img src={image.src} alt="" loading="lazy" />
+              </button>
+            ))}
+          </div>
+        </div>,
+        document.body
       )}
     </>
   );

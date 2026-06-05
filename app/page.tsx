@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import GalleryLightbox from '@/components/GalleryLightbox';
+import HomeGallerySlider from '@/components/HomeGallerySlider';
 import Scripts from '@/components/Scripts';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
@@ -190,9 +190,7 @@ export default function Home() {
                     <div className="p-8">
                       <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
                       <p className="text-white/70 text-sm leading-relaxed">{service.summary}</p>
-                      <span className="mt-6 inline-flex text-xs font-semibold uppercase tracking-[0.18em] text-white">
-                        Detail služby
-                      </span>
+
                     </div>
                   </Link>
                 ))}
@@ -209,18 +207,7 @@ export default function Home() {
           >
             <div className="site-container">
               <div className="fade-in">
-                <div className="flex items-end justify-between mb-10">
-                  <div>
-                    <div className="divider mb-6"></div>
-                    <h2 className="font-heading text-5xl md:text-7xl font-bold tracking-tight">Realizácie</h2>
-                    <p className="text-muted mt-3">
-                      Pracujeme na celom východnom Slovensku, vrátane Liptova a Oravy.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="fade-in-scale">
-                <GalleryLightbox images={galleryImages} />
+                <HomeGallerySlider images={galleryImages} />
               </div>
             </div>
           </section>
