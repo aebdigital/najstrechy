@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import SubpageHero from '@/components/SubpageHero';
-import { services } from '@/data/services';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Kontakt – Naj-strecha s.r.o.',
@@ -59,24 +58,7 @@ export default function KontaktPage() {
             </div>
 
             <aside className="lg:col-span-5 fade-up-on-load load-delay-300">
-              <div className="rounded-lg bg-white p-6 shadow-sm border border-black/10">
-                <h2 className="font-heading text-2xl font-bold text-brown">Služby</h2>
-                <div className="mt-5 space-y-2">
-                  {services.map((service) => (
-                    <Link
-                      key={service.slug}
-                      href={`/sluzby/${service.slug}`}
-                      className="block rounded-md border border-black/10 px-4 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
-                    >
-                      {service.shortTitle}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 img-hover-zoom rounded-lg overflow-hidden shadow-2xl">
-                <img src="/assets/footerBg.jpg" alt="Kontakt Naj-strecha s.r.o." className="h-[360px] w-full object-cover" />
-              </div>
+              <ContactForm />
             </aside>
           </div>
         </section>
