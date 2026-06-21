@@ -8,6 +8,11 @@ export type Service = {
   intro: string;
   details: string[];
   features: string[];
+  beforeAfter?: {
+    title: string;
+    before: string;
+    after: string;
+  }[];
 };
 
 export const services: Service[] = [
@@ -91,19 +96,48 @@ export const services: Service[] = [
   },
   {
     slug: 'fukana-striekana-izolacia',
-    title: 'Fúkaná a striekaná izolácia',
+    title: 'Fúkaná a striekana izolácia',
     shortTitle: 'Fúkaná izolácia',
     eyebrow: 'Letná sezóna',
     summary:
       'Fúkaná a striekaná izolácia striech a podkroví pre rýchle zateplenie počas letnej sezóny.',
-    image: '/sluybz/fukana.webp',
+    image: '/sluybz/fukana new.jpg',
     intro:
-      'Fúkaná a striekaná izolácia je vhodná pre podkrovia a ťažšie dostupné priestory, kde je dôležité rovnomerné vyplnenie dutín.',
+      'Fúkaná a striekaná izolácia je vhodná pre podkrovia and ťažšie dostupné priestory, kde je dôležité rovnomerné vyplnenie dutín.',
     details: [
       'Služba je dostupná najmä počas letnej sezóny. Pri obhliadke preveríme prístup, skladbu konštrukcie a vhodnosť riešenia.',
       'Fotky z tejto služby čakajú na doplnenie z Facebooku alebo dodaných podkladov; zatiaľ používame dostupný referenčný záber.',
     ],
-    features: ['Rýchle zateplenie podkrovia', 'Vhodné pre dutiny a horšie prístupné miesta', 'Sezónna realizácia v lete'],
+    features: ['Rýchle zateplenie podkrovia', 'Vhodné pre dutiny and horšie prístupné miesta', 'Sezónna realizácia v lete'],
+  },
+  {
+    slug: 'farbenie-striech',
+    title: 'Farbenie striech',
+    shortTitle: 'Farbenie striech',
+    eyebrow: 'Renovácia striech',
+    summary:
+      'Profesionálne farbenie a nátery striech pre predĺženie ich životnosti a svieži, nový vzhľad.',
+    image: '/po1.jpg',
+    intro:
+      'Farbenie a nátery striech predstavujú cenovo dostupnú alternatívu k celkovej výmene krytiny. Správne ošetrenie chráni strechu a obnovuje jej vzhľad.',
+    details: [
+      'Používame špeciálne elastické a paropriepustné farby s vynikajúcou priľnavosťou, ktoré dlhodobo odolávajú UV žiareniu a vode.',
+      'Pred nanesením farby strechu precízne vyčistíme vysokotlakovým vodným lúčom a aplikujeme fungicídny prípravok proti machu a lišajníkom.',
+      'Tento ochranný náter predlžuje životnosť strechy, zamedzuje usadzovaniu nečistôt a chráni ju pred koróziou.',
+    ],
+    features: ['Dôkladné tlakové čistenie', 'Kvalitné a odolné nátery striech', 'Predĺženie životnosti krytiny'],
+    beforeAfter: [
+      {
+        title: 'Realizácia 1',
+        before: '/pred1.jpg',
+        after: '/po1.jpg',
+      },
+      {
+        title: 'Realizácia 2',
+        before: '/pred2.jpg',
+        after: '/po2.jpg',
+      },
+    ],
   },
 ];
 

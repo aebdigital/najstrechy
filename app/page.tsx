@@ -164,13 +164,13 @@ export default function Home() {
                   kvalitu, rýchlosť a priame ceny od výrobcu.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {services.map((service, index) => (
                   <Link
                     key={service.slug}
                     href={`/sluzby/${service.slug}`}
                     className={`fade-in group bg-brown text-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500 ${
-                      index % 3 === 1 ? 'delay-100' : index % 3 === 2 ? 'delay-200' : ''
+                      index % 4 === 1 ? 'delay-100' : index % 4 === 2 ? 'delay-200' : index % 4 === 3 ? 'delay-300' : ''
                     }`}
                   >
                     <div className="img-hover-zoom h-72 relative">

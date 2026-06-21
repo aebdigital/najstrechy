@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: 'Najlepšia oprava strechy – Naj-strecha s.r.o.',
   description:
     'Bezdemontážna renovácia a izolácia bridlicových striech bitúmenovou krytinou s efektom škridle. Renovácia za 1 – 2 dni a 15-ročná písomná záruka.',
-  robots: { index: false, follow: false },
 };
 
 export default function ClanokPage() {

@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: 'Naj-strecha s.r.o. - Strechy Rožňava a východné Slovensko',
   description:
     'Profesionálne strešné práce, izolácie a opravy komínov. Flexibilná firma s vlastnými zamestnancami, rýchla realizácia a priame ceny od výrobcu.',
-  robots: { index: false, follow: false },
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',

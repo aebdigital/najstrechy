@@ -8,7 +8,6 @@ import { services } from '@/data/services';
 export const metadata: Metadata = {
   title: 'Kontakt – Naj-strecha s.r.o.',
   description: 'Kontakt na Naj-strecha s.r.o. Rožňava. Strešné práce, izolácie, komíny a odkvapové systémy.',
-  robots: { index: false, follow: false },
 };
 
 export default function KontaktPage() {

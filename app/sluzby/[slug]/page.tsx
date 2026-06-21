@@ -28,7 +28,6 @@ export function generateMetadata({ params }: ServicePageProps): Metadata {
   return {
     title: `${service.title} – Naj-strecha s.r.o.`,
     description: service.summary,
-    robots: { index: false, follow: false },
   };
 }
 
@@ -117,6 +116,47 @@ export default function ServicePage({ params }: ServicePageProps) {
                   </div>
                 ))}
               </div>
+
+              {service.beforeAfter && service.beforeAfter.length > 0 && (
+                <div className="mt-12 border-t border-black/10 pt-12">
+                  <h2 className="font-heading text-2xl md:text-3xl font-bold tracking-tight mb-8 text-dark">
+                    Ukážky prác (Pred / Po)
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {service.beforeAfter.map((item, idx) => (
+                      <div key={idx} className="space-y-3">
+                        <h3 className="font-semibold text-base text-dark">{item.title}</h3>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="relative group overflow-hidden rounded-lg shadow-md border border-black/10 bg-white">
+                            <span className="absolute top-2 left-2 z-10 bg-primary text-white font-bold text-[10px] uppercase px-2 py-0.5 rounded shadow">
+                              Pred
+                            </span>
+                            <div className="aspect-[4/3] w-full overflow-hidden">
+                              <img
+                                src={item.before}
+                                alt={`${item.title} - pred`}
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative group overflow-hidden rounded-lg shadow-md border border-black/10 bg-white">
+                            <span className="absolute top-2 left-2 z-10 bg-green-600 text-white font-bold text-[10px] uppercase px-2 py-0.5 rounded shadow">
+                              Po
+                            </span>
+                            <div className="aspect-[4/3] w-full overflow-hidden">
+                              <img
+                                src={item.after}
+                                alt={`${item.title} - po`}
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-12 rounded-lg bg-[#eef3f7] p-8">
                 <h2 className="font-heading text-2xl md:text-3xl font-bold tracking-tight">Ako postupujeme</h2>
